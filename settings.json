@@ -1,0 +1,7 @@
+{
+  "electron": {
+    "frame": false,
+    "width": 1000,
+    "height": 650
+  }
+}
