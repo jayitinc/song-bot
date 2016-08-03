@@ -6,6 +6,13 @@
 </body>
 
 <template name="layout">
-  <h1>Song_Bot Dashboard</h1>
+  <nav style="-webkit-app-region: drag">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo center">Dashboard</a>
+      <ul id="nav-mobile" class="left" style="-webkit-app-region: no-drag">
+        <li><a href="/">Main</a></li>
+      </ul>
+    </div>
+  </nav>
   {{> yield}}
 </template>
