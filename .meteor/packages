@@ -19,7 +19,7 @@ ecmascript@0.5.7              # Enable ECMAScript2015+ syntax in app code
 
 autopublish@1.0.7             # Publish all data to the clients (for prototyping)
 insecure@1.0.7                # Allow all DB writes from clients (for prototyping)
-meson:electron
-iron:router
 fourseven:scss
 materialize:materialize
+meson:electron
+iron:router
