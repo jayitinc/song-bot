@@ -1,3 +1,43 @@
 <template name="commands">
-  <p>Commands go here!</p>
+  <!-- Command Form -->
+  <div class="row">
+    <form class="col s12" id="command-form">
+      <div class="row">
+        <div class="input-field col s6">
+          <input name="name" id="command-name" type="text" />
+          <label for="command-name">Command</label>
+        </div>
+        <div class="input-field col s6">
+          <select name="permissions">
+            <option value="everyone" selected>Everyone</option>
+            <option value="regular">Regular</option>
+            <option value="moderator">Moderator</option>
+            <option value="caster">Caster</option>
+          </select>
+          <label>Permissions</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input name="response" id="command-response" type="text" />
+          <label for="command-response">Response</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="submit" value="Add/Edit Command" class="btn waves-effect waves-light right" />
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <!-- Command List -->
+
+  <!-- JS Initialization -->
+  <script>
+    $(document).ready(function() {
+      $('select').material_select();
+      Materialize.updateTextFields();
+    });
+  </script>
 </template>
