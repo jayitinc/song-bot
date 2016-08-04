@@ -5,3 +5,8 @@
 .dropdown-content {
   margin-top: 65px;
 }
+
+.changelog-tag {
+  color: white;
+  margin: 5px;
+}
