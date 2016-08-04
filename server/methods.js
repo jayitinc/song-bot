@@ -4,5 +4,10 @@ Meteor.methods({
     ircoptions.identity.password = password;
     client = new tmi.client(ircoptions);
     client.connect();
+  },
+  'isConnected'(){
+    var status = client.readyState();
+
+    return (status == "OPEN");
   }
 });
