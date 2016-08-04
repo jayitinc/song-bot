@@ -6,3 +6,10 @@ Template.layout.helpers({
     return Electron.isDesktop();
   }
 });
+
+Template.layout.events({
+  'click #exit-button'(event){
+    //Call the quit method
+    Meteor.call('quit');
+  }
+});
