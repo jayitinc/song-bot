@@ -2,6 +2,7 @@
   "electron": {
     "frame": false,
     "width": 1000,
-    "height": 650
+    "height": 650,
+    "minWidth": 1000
   }
 }

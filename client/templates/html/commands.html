@@ -8,7 +8,7 @@
           <label for="command-name">Command</label>
         </div>
         <div class="input-field col s6">
-          <select name="permissions">
+          <select name="permissions" id="command-perms">
             <option value="everyone" selected>Everyone</option>
             <option value="regular">Regular</option>
             <option value="moderator">Moderator</option>
@@ -47,7 +47,10 @@
           <td>{{name}}</td>
           <td>{{response}}</td>
           <td>{{permissions}}</td>
-          <td>Coming Soon...</td>
+          <td>
+            <button class="waves-effect waves-light btn" id="edit-button"><i class="material-icons left">mode_edit</i>Edit</button>
+            <button class="waves-effect waves-light btn" id="delete-button"><i class="material-icons left">delete_forever</i>Delete</button>
+          </td>
         </tr>
       {{/each}}
     </tbody>

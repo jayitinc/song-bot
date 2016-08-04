@@ -18,6 +18,19 @@ Template.commands.events({
     Meteor.call('upsertCommand', commandName, commandResponse, commandPermissions);
 
     //Reset fields
-    //TODO: Reset the form fields.
+    $('#command-name').val('');
+    $('#command-response').val('');
+    $('#command-perms').val('everyone');
+    Materialize.updateTextFields();
+  },
+  'click #delete-button'(event){
+    var id = this._id;
+    Commands.remove({'_id': id});
+  },
+  'click #edit-button'(event){
+    $('#command-name').val(this.name);
+    $('#command-response').val(this.response);
+    $('#command-perms').val(this.permissions);
+    Materialize.updateTextFields();
   }
 });
