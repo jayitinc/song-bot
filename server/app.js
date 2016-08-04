@@ -13,7 +13,7 @@ ircoptions = {
         username: "",
         password: ""
     },
-    channels: ["#"]
+    channels: ["#jayitinc"]
 };
 
 client = new tmi.client(ircoptions);

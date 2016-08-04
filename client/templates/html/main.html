@@ -8,7 +8,7 @@
       </div>
     </div>
     <div class="row">
-      <form class="col s12">
+      <form class="col s12" id="login-form">
         <div class="row">
           <div class="input-field col s6">
             <input placeholder="Username" name="botuser" id="botuser" class="validate" />
@@ -19,9 +19,7 @@
         </div>
         <div class="row">
           <div class="col s12">
-            <button class="btn waves-effect waves-light right" type="submit" name="action">Login &amp; Connect
-              <i class="material-icons right">send</i>
-            </button>
+            <input class="btn waves-effect waves-light right" type="submit" value="Login &amp; Connect" />
             {{#if showWindowControls}}
               <a class="waves-effect waves-teal btn-flat right" id="oauth-button">Don't have an OAuth Key? Click here to generate one.</a>
             {{else}}

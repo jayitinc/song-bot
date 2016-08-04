@@ -7,5 +7,11 @@ Meteor.methods({
   },
   'isConnected'(){
     return (client.readyState() == "OPEN");
+  },
+  'submitLoginInfo'(username, password){
+    BotInfo.insert({
+      "username": username,
+      "password": password
+    });
   }
 });
