@@ -5,3 +5,5 @@ Router.configure({
 Router.route('/', function(){
   this.render('main');
 });
+
+Router.route('/commands');
