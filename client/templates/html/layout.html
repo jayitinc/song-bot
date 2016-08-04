@@ -1,4 +1,7 @@
 <template name="layout">
+  <ul id="more-drop" class="dropdown-content">
+    <li><a href="#">About Song_Bot...</a></li>
+  </ul>
   <nav style="-webkit-app-region: drag">
     <div class="nav-wrapper">
       <a href="#" class="brand-logo center">Dashboard</a>
@@ -10,8 +13,9 @@
       {{/if}}
       {{#if showWindowControls}}
       <ul class="right" style="-webkit-app-region: no-drag">
-        <li><a href="#"><i class="material-icons">remove</i></a></li>
-        <li><a href="#"><i class="material-icons">fullscreen</i></a></li>
+        <li><a href="#" id="more-button" class="dropdown-button" data-activates="more-drop"><i class="material-icons">more_vert</i></a></li>
+        <!--<li><a href="#"><i class="material-icons">remove</i></a></li>-->
+        <!--<li><a href="#"><i class="material-icons">fullscreen</i></a></li>-->
         <li><a href="#" id="exit-button"><i class="material-icons">close</i></a></li>
       </ul>
       {{/if}}

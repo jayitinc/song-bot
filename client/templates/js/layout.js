@@ -13,3 +13,7 @@ Template.layout.events({
     Meteor.call('quit');
   }
 });
+
+$(document).ready(function(){
+  $('.dropdown-button').dropdown();
+});
