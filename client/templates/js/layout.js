@@ -14,6 +14,8 @@ Template.layout.events({
   }
 });
 
-$(document).ready(function(){
-  $('.dropdown-button').dropdown();
+Template.layout.onRendered(function(){
+  $(document).ready(function(){
+    $(".dropdown-button").dropdown();
+  });
 });
