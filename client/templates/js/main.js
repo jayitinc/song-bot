@@ -16,7 +16,8 @@ Template.main.events({
     event.preventDefault();
     var username = event.target.botuser.value;
     var password = event.target.botpass.value;
-    Meteor.call('submitLoginInfo', username, password);
-    Meteor.call('connectIrc', username, password);
+    var channel = "#" + event.target.botchan.value.replace('#','');
+    Meteor.call('submitLoginInfo', username, password, channel);
+    Meteor.call('connectIrc', username, password, channel);
   }
 });
