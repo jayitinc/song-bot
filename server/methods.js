@@ -6,8 +6,6 @@ Meteor.methods({
     client.connect();
   },
   'isConnected'(){
-    var status = client.readyState();
-
-    return (status == "OPEN");
+    return (client.readyState() == "OPEN");
   }
 });
