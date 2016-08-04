@@ -4,7 +4,8 @@ Template.layout.helpers({
   },
   'showWindowControls': function(){
     return Electron.isDesktop();
-  }
+  },
+  'version': "0.2.0"
 });
 
 Template.layout.events({
@@ -15,7 +16,6 @@ Template.layout.events({
 });
 
 Template.layout.onRendered(function(){
-  $(document).ready(function(){
     $(".dropdown-button").dropdown();
-  });
+    $('.modal-trigger').leanModal();
 });

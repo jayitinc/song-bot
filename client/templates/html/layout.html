@@ -1,27 +1,41 @@
 <template name="layout">
   <ul id="more-drop" class="dropdown-content">
-    <li><a href="#">About</a></li>
+    <li><a href="#about-modal" class="modal-trigger">About</a></li>
   </ul>
+
   <nav style="-webkit-app-region: drag">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Dashboard</a>
+      <a href="#" class="brand-logo center">Dashboard v{{version}}</a>
       {{#if isConnected}}
       <ul id="nav-mobile" class="left" style="-webkit-app-region: no-drag">
         <li><a href="/">Main</a></li>
         <li><a href="/commands">Commands</a></li>
       </ul>
       {{/if}}
-      {{#if showWindowControls}}
       <ul class="right" style="-webkit-app-region: no-drag">
         <li><a href="#!" id="more-button" class="dropdown-button" data-activates="more-drop"><i class="material-icons">more_vert</i></a></li>
+        {{#if showWindowControls}}
         <!--<li><a href="#"><i class="material-icons">remove</i></a></li>-->
         <!--<li><a href="#"><i class="material-icons">fullscreen</i></a></li>-->
         <li><a href="#" id="exit-button"><i class="material-icons">close</i></a></li>
+        {{/if}}
       </ul>
-      {{/if}}
     </div>
   </nav>
   <div class="content">
     {{> yield}}
+  </div>
+
+  <!-- Modals -->
+  <div id="about-modal" class="modal modal-fixed-footer">
+    <div class="modal-content">
+      <h4>Song_Bot v{{version}}</h4>
+      <p>Created by Trenton Pottruff</p>
+      <p>This project is <a href="https://github.com/jayitinc/song-bot">open-source</a>.</p>
+      <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
+    </div>
+    <div class="modal-footer">
+      <a href="#" class="modal-action modal-close waves-effect waves-green btn-flat">Done</a>
+    </div>
   </div>
 </template>
