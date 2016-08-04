@@ -15,5 +15,12 @@ Meteor.methods({
       "password": password,
       "channel": channel
     });
+  },
+  'upsertCommand'(name, response, permissions){
+    Commands.upsert({"name":name},{
+      "name": name,
+      "response": response,
+      "permissions": permissions
+    });
   }
 });
