@@ -42,7 +42,14 @@
       </tr>
     </thead>
     <tbody>
-      <!-- Each Loop -->
+      {{#each commands}}
+        <tr>
+          <td>{{name}}</td>
+          <td>{{response}}</td>
+          <td>{{permissions}}</td>
+          <td>Coming Soon...</td>
+        </tr>
+      {{/each}}
     </tbody>
   </table>
 
