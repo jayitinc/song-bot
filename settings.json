@@ -1,7 +1,7 @@
 {
   "electron": {
     "name": "Song_Bot",
-    "version": "0.1.1",
+    "version": "0.2.0",
     "frame": false,
     "width": 1000,
     "height": 650,
