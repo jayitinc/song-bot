@@ -2,6 +2,8 @@
 Song_Bot is an easy to use application for quickly launching a personalized Twitch Bot.
 
 ## Launching the app
+**Warning: Song_Bot has only been tested on Windows. We cannot confirm at this time if a stable version on Mac OS X or Linux exists.**
+
 ###### Pre-built app
 We are working hard at finding a solution to building the desktop app, until then the only way to use Song_Bot is manually running a debug copy in a CLI.
 
