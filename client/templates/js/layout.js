@@ -7,7 +7,7 @@ Template.layout.helpers({
   },
   'currentVersion': "0.2.0",
   'updates': function() {
-    return changelogJson;
+    return changelog;
   },
   'doesNewExist': function(){
     if (this.new != null)
@@ -16,19 +16,16 @@ Template.layout.helpers({
     return false;
   },
   'doesFixedExist': function(){
-    if (this.fixed != null)
-      return true;
-
-    return false;
+    return (this.fixed != null);
   },
   'doesRemovedExist': function(){
-    if (this.removed != null)
-      return true;
-
-    return false;
+    return (this.removed != null);
   },
   'isFirst': function(index){
     return (index == 0);
+  },
+  'questions': function(){
+    return faq;
   }
 });
 
