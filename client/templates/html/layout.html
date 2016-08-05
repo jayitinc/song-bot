@@ -6,7 +6,7 @@
 
   <nav style="-webkit-app-region: drag">
     <div class="nav-wrapper">
-      <a href="#" class="brand-logo center">Dashboard v{{version}}</a>
+      <a href="#" class="brand-logo center">Dashboard v{{currentVersion}}</a>
       {{#if isConnected}}
       <ul id="nav-mobile" class="left" style="-webkit-app-region: no-drag">
         <li><a href="/">Main</a></li>
@@ -30,7 +30,7 @@
   <!-- Modals -->
   <div id="about-modal" class="modal modal-fixed-footer">
     <div class="modal-content">
-      <h4>Song_Bot v{{version}}</h4>
+      <h4>Song_Bot v{{currentVersion}}</h4>
       <p>Created by Trenton Pottruff</p>
       <p>This project is <a href="https://github.com/jayitinc/song-bot">open-source</a>.</p>
       <p><a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/"><img alt="Creative Commons Licence" style="border-width:0" src="https://i.creativecommons.org/l/by-sa/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-sa/4.0/">Creative Commons Attribution-ShareAlike 4.0 International License</a>.</p>
@@ -41,16 +41,38 @@
   </div><div id="changelog-modal" class="modal modal-fixed-footer">
     <div class="modal-content">
       <h4>Changelog</h4>
-      <ul class="collapsible">
+      <ul class="collapsible" data-collapsible="expandable">
+      {{#each updates}}
         <li>
-          <div class="collapsible-header"><i class="material-icons">new_releases</i>v0.2.0</div>
+          <div class="collapsible-header {{#if isFirst @index}}active{{/if}}"><i class="material-icons">{{icon}}</i>v{{version}}</div>
           <div class="collapsible-body">
+            {{#if doesNewExist}}
             <div class="chip green changelog-tag">New Features</div>
             <ul class="collection">
-              <li class="collection-item">+ About Page</li>
+              {{#each new}}
+              <li class="collection-item">{{info}}</li>
+              {{/each}}
             </ul>
+            {{/if}}
+            {{#if doesFixedExist}}
+            <div class="chip orange changelog-tag">Bug Fixes</div>
+            <ul class="collection">
+              {{#each fixed}}
+              <li class="collection-item">{{info}}</li>
+              {{/each}}
+            </ul>
+            {{/if}}
+            {{#if doesRemovedExist}}
+            <div class="chip red changelog-tag">Removed</div>
+            <ul class="collection">
+              {{#each removed}}
+              <li class="collection-item">{{info}}</li>
+              {{/each}}
+            </ul>
+            {{/if}}
           </div>
         </li>
+      {{/each}}
       </ul>
     </div>
     <div class="modal-footer">
