@@ -5,7 +5,7 @@ Template.layout.helpers({
   'showWindowControls': function(){
     return Electron.isDesktop();
   },
-  'currentVersion': "0.2.0",
+  'currentVersion': "0.3.0",
   'updates': function() {
     return changelog;
   },
