@@ -1,3 +1,38 @@
 <template name="timers">
-  <p>To-Do</p>
+  <h4>Timers</h4>
+  <div class="row">
+    <form class="col s12">
+      <div class="row">
+        <div class="input-field col s6">
+          <select name="type" id="timer-type">
+            <option value="normal">Normal Timer</option>
+            <option value="command">Command Timer</option>
+          </select>
+          <label>Timer Type</label>
+        </div>
+        <div class="input-field col s6">
+            <input type="number" id="timer-frequency" name="frequency" min="5" value="5" />
+            <label for="timer-frequency">Timer Frequency (Minutes)</label>
+        </div>
+      </div>
+      {{#if normalSelected}}
+        <div class="row">
+          <div class="input-field col s12">
+            <textarea name="response" id="timer-response" class="materialize-textarea"></textarea>
+            <label for="timer-response">Response</label>
+          </div>
+        </div>
+      {{else}}
+        <div class="row">
+          <div class="input-field col s12">
+            <select name="command">
+              <option value="" disabled selected>Select a command to call</option>
+              <option value="!test">!test</option>
+            </select>
+            <label>Command</label>
+          </div>
+        </div>
+      {{/if}}
+    </form>
+  </div>
 </template>
