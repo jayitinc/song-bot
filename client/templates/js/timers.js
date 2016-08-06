@@ -54,6 +54,13 @@ Template.timers.events({
       Timers.insert(obj);
     else
       Timers.update({"_id": id}, obj);
+
+      $('#timer-hidden').val('');
+      $('#timer-frequency').val('');
+      $('#timer-response').val('');
+      $('#timer-command').val('');
+
+      Materialize.updateTextFields();
   },
   'click #edit-button'(event){
     $('#timer-hidden').val(this._id);
