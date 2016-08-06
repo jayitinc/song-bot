@@ -10,7 +10,7 @@ Template.main.helpers({
 Template.main.events({
   'click #oauth-button'(event){
     console.log("Opening TwitchApps TMI...");
-    Electron.openExternal("http://twitchapps.com/tmi");
+    //Electron.openExternal("http://twitchapps.com/tmi");
   },
   'submit #login-form'(event){
     event.preventDefault();

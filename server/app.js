@@ -1,8 +1,9 @@
 import { Meteor } from 'meteor/meteor';
 
 Fiber = Npm.require('fibers');
-
 tmi = require("tmi.js");
+
+activeTimers = [];
 
 ircoptions = {
     options: {

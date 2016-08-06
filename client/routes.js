@@ -7,3 +7,4 @@ Router.route('/', function(){
 });
 
 Router.route('/commands');
+Router.route('/timers');

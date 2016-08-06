@@ -31,6 +31,19 @@ Meteor.methods({
           break;
       }
     });
+    //Start timers
+    var timerCursor = Timers.find();
+    timerCursor.forEach(function(row){
+      Meteor.setInterval(function(){
+        if (row.type == "normal"){
+          client.say(ircoptions.channels[0], row.response);
+        }
+        else{
+          client.say(ircoptions.channels[0], Commands.findOne({name: row.command}).response);
+        }
+      }, row.frequency * 60000);
+      console.log("Timer activated!");
+    });
   },
   'isConnected'(){
     return (client.readyState() == "OPEN");
