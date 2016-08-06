@@ -3,7 +3,7 @@ Template.layout.helpers({
     return (BotInfo.find().count() > 0);
   },
   'showWindowControls': function(){
-    return Electron.isDesktop();
+    return true;
   },
   'currentVersion': "0.3.0",
   'updates': function() {
@@ -32,7 +32,20 @@ Template.layout.helpers({
 Template.layout.events({
   'click #exit-button'(event){
     //Call the quit method
-    Meteor.call('quit');
+    //Meteor.call('quitApp');
+    Electrify.call('quit', [], function(err, msg) {
+      console.log(msg);
+    });
+  },
+  'click #minimize-button'(event){
+    Electrify.call('minimize', [], function(err, msg) {
+      console.log(msg);
+    });
+  },
+  'click #maximize-button'(event){
+    Electrify.call('maximize', [], function(err, msg) {
+      console.log(msg);
+    });
   }
 });
 

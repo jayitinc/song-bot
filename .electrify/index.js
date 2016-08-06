@@ -17,6 +17,30 @@ app.on('ready', function() {
 
     // open up meteor root url
     window.loadURL(meteor_root_url);
+
+    electrify.methods({
+      'quit': function(done) {
+        console.log("stop");
+        electrify.stop(function() {
+          app.quit();
+        });
+
+        done(null, "Hello");
+      },
+      'minimize': function(done) {
+        window.minimize();
+
+        done (null, "Minimizing...");
+      },
+      'maximize': function(done) {
+        if (window.isMaximized())
+          window.unmaximize();
+        else
+          window.maximize();
+
+        done(null, "Maximizing...");
+      }
+    });
   });
 });
 
