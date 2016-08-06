@@ -2,3 +2,4 @@ node_modules/
 .meteor-electron/
 confidential/
 publish-settings.json
+.electrify/.dist/
