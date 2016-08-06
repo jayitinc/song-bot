@@ -5,9 +5,11 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "bufferutil": "^1.2.1",
     "electrify": "^2.1.4",
     "meteor-node-stubs": "~0.2.0",
     "tmi.js": "^1.1.1",
-    "twitch-irc": "^1.2.7"
+    "twitch-irc": "^1.2.7",
+    "utf-8-validate": "^1.2.1"
   }
 }
