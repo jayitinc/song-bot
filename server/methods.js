@@ -61,8 +61,5 @@ Meteor.methods({
       "response": response,
       "permissions": permissions
     });
-  },
-  'quit'(){
-    process.exit();
   }
 });
