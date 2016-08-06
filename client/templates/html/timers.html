@@ -1,7 +1,9 @@
 <template name="timers">
+  <!-- Form -->
   <h4>Timers</h4>
   <div class="row">
-    <form class="col s12">
+    <form class="col s12" id="timer-form">
+      <input type="hidden" name="id" id="timer-hidden" value="" />
       <div class="row">
         <div class="input-field col s6">
           <select name="type" id="timer-type">
@@ -11,7 +13,7 @@
           <label>Timer Type</label>
         </div>
         <div class="input-field col s6">
-            <input type="number" id="timer-frequency" name="frequency" min="5" value="5" />
+            <input type="number" id="timer-frequency" name="frequency" min="1" value="5" />
             <label for="timer-frequency">Timer Frequency (Minutes)</label>
         </div>
       </div>
@@ -25,14 +27,46 @@
       {{else}}
         <div class="row">
           <div class="input-field col s12">
-            <select name="command">
+            <select name="command" id="timer-command">
               <option value="" disabled selected>Select a command to call</option>
-              <option value="!test">!test</option>
+              {{#each commands}}
+                <option value="{{name}}">{{name}}</option>
+              {{/each}}
             </select>
             <label>Command</label>
           </div>
         </div>
       {{/if}}
+      <div class="row">
+        <div class="input-field col s12">
+          <input type="submit" class="right btn waves-effect waves-light" value="Add Timer" />
+        </div>
+      </div>
     </form>
   </div>
+
+  <!-- List -->
+  <table class="highlight">
+    <thead>
+      <tr>
+        <th>Type</th>
+        <th>Frequency</th>
+        <th>Response/Command</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each timers}}
+        <tr>
+          <td>{{type}}</td>
+          <td>{{frequency}}</td>
+          <td>{{processResp}}</td>
+          <td>
+            <button class="waves-effect waves-light btn" id="edit-button"><i class="material-icons left">mode_edit</i>Edit</button>
+            <button class="waves-effect waves-light btn" id="delete-button"><i class="material-icons left">delete_forever</i>Delete</button>
+          </td>
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
 </template>
