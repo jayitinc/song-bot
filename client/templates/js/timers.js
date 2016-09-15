@@ -50,10 +50,14 @@ Template.timers.events({
     else
       obj.command = $('#timer-command').val();
 
-    if (id == "")
-      Timers.insert(obj);
-    else
+    if (id == "") {
+      id = Timers.insert(obj);
+      Meteor.call('startNewTimer', obj, id);
+    }
+    else {
       Timers.update({"_id": id}, obj);
+      Meteor.call('restartTimer', obj, id);
+    }
 
       $('#timer-hidden').val('');
       $('#timer-frequency').val('');
@@ -77,6 +81,7 @@ Template.timers.events({
   },
   'click #delete-button'(event){
     Timers.remove({"_id": this._id});
+    Meteor.call('stopTimer', this._id);
   }
 });
 

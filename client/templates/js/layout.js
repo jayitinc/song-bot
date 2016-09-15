@@ -5,7 +5,7 @@ Template.layout.helpers({
   'showWindowControls': function(){
     return true;
   },
-  'currentVersion': "0.3.0",
+  'currentVersion': "0.3.1",
   'updates': function() {
     return changelog;
   },

@@ -34,7 +34,7 @@ Meteor.methods({
     //Start timers
     var timerCursor = Timers.find();
     timerCursor.forEach(function(row){
-      Meteor.setInterval(function(){
+      var handle = Meteor.setInterval(function(){
         if (row.type == "normal"){
           client.say(ircoptions.channels[0], row.response);
         }
@@ -42,7 +42,11 @@ Meteor.methods({
           client.say(ircoptions.channels[0], Commands.findOne({name: row.command}).response);
         }
       }, row.frequency * 60000);
-      console.log("Timer activated!");
+
+      activeTimers.push({
+        "id": row._id,
+        "handle": handle
+      });
     });
   },
   'isConnected'(){
@@ -61,5 +65,41 @@ Meteor.methods({
       "response": response,
       "permissions": permissions
     });
+  },
+  'startNewTimer'(timer, uid) {
+    var handle = Meteor.setInterval(function(){
+      if (timer.type == "normal"){
+        client.say(ircoptions.channels[0], timer.response);
+      }
+      else{
+        client.say(ircoptions.channels[0], Commands.findOne({name: timer.command}).response);
+      }
+    }, timer.frequency * 60000);
+
+    console.log("Starting timer: " + uid);
+
+    activeTimers.push({
+      "id": uid,
+      "handle": handle
+    });
+  },
+  'stopTimer'(uid) {
+    var lookup = {};
+    for (var i = 0, len = activeTimers.length; i < len; i++) {
+      lookup[activeTimers[i].id] = activeTimers[i];
+    }
+    var timerObj = lookup[uid];
+    console.log("Stopping timer: " + timerObj.id);
+    Meteor.clearInterval(timerObj.handle);
+  },
+  'restartTimer'(timer, uid) {
+    var lookup = {};
+    for (var i = 0, len = activeTimers.length; i < len; i++) {
+      lookup[activeTimers[i].id] = activeTimers[i];
+    }
+    var timerObj = lookup[uid];
+    console.log("Stopping timer: " + timerObj.id);
+    Meteor.clearInterval(timerObj.handle);
+    Meteor.call('startNewTimer', timer, uid);
   }
 });
