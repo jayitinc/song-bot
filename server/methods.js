@@ -9,6 +9,15 @@ Meteor.methods({
     //Define bot functionality
     //TODO: Move this somewhere more organized.
     client.on('message', function(channel, userstate, message, self){
+      Fiber(function(){
+        Messages.insert({
+          sender: userstate['display-name'],
+          message: message
+        });
+
+        console.log('Inserted into the database...');
+      }).run();
+
       //Ignore message if from the bot
       if (self) return;
 
@@ -101,5 +110,8 @@ Meteor.methods({
     console.log("Stopping timer: " + timerObj.id);
     Meteor.clearInterval(timerObj.handle);
     Meteor.call('startNewTimer', timer, uid);
+  },
+  'getMessages'(){
+    return messages;
   }
 });

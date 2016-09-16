@@ -4,6 +4,9 @@ Template.main.helpers({
   },
   'showWindowControls': function(){
     return Electron.isDesktop();
+  },
+  'messages': function(){
+    return Messages.find();
   }
 });
 

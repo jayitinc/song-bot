@@ -20,3 +20,4 @@ Run a test build by running `meteor --settings settings.json` in CMD or Terminal
 - [ ] Currency System
 - [ ] Notifications
 - [ ] Song Requests
+- [ ] Command Recommendations

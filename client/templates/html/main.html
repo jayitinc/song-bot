@@ -1,6 +1,18 @@
 <template name="main">
   {{#if isBotInfo}}
-    <p>Nothing to see here!</p>
+    <p>Chat</p>
+    {{#each messages}}
+      <div class="row">
+        <div class="col s12">
+          <div class="card grey lighten-2">
+            <div class="card-content">
+              <span class="card-title">{{sender}}</span>
+              <p>{{message}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    {{/each}}
   {{else}}
     <div class="row">
       <div class="col s12 center">
