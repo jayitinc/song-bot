@@ -6,16 +6,19 @@ Meteor.methods({
     client = new tmi.client(ircoptions);
     client.connect();
 
+    Messages.remove({});
+
     //Define bot functionality
     //TODO: Move this somewhere more organized.
     client.on('message', function(channel, userstate, message, self){
       Fiber(function(){
-        Messages.insert({
-          sender: userstate['display-name'],
-          message: message
-        });
-
-        console.log('Inserted into the database...');
+        if (!message.startsWith("###"))
+        {
+          Messages.insert({
+            sender: userstate['display-name'],
+            message: message
+          });
+        }
       }).run();
 
       //Ignore message if from the bot
