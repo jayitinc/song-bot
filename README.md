@@ -15,7 +15,7 @@ Run a test build by running `meteor --settings settings.json` in CMD or Terminal
 ## To-Do
 - [x] Custom Commands
 - [x] Timers
-- [ ] In-App Chat
+- [x] In-App Chat
 - [ ] Anti-Spoiler Mode
 - [ ] Currency System
 - [ ] Notifications

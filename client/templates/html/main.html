@@ -1,6 +1,7 @@
 <template name="main">
   {{#if isBotInfo}}
     <p>Chat</p>
+    <div style="position: absolute; top: 150px; bottom: 90px; left: 0; right 0; width: 100%; overflow:scroll;" id="chat-log">
     {{#each messages}}
       <div class="row">
         <div class="col s12">
@@ -13,6 +14,14 @@
         </div>
       </div>
     {{/each}}
+    </div>
+    <div style="position: absolute; bottom: 0; left: 0; right: 0;" class="row">
+      <div class="input-field col s12">
+        <input placeholder="Type a message for the bot to say..." style="width: 90%;" id="chat-message" />
+
+        <button class="waves-effect waves-light btn" id="chat-send">Send</button>
+      </div>
+    </div>
   {{else}}
     <div class="row">
       <div class="col s12 center">

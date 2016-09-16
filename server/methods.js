@@ -113,5 +113,8 @@ Meteor.methods({
   },
   'getMessages'(){
     return messages;
+  },
+  'sendMessage'(message){
+    client.say(ircoptions.channels[0], message);
   }
 });
