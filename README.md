@@ -1,3 +1,5 @@
+***WARNING: This project is no longer maintained and will not likely be receiving any updates and may have outdated or broken dependencies.***
+
 # Song_Bot
 Song_Bot is an easy to use application for quickly launching a personalized Twitch Bot.
 
